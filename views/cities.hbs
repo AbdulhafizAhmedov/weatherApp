@@ -1,0 +1,23 @@
+<div class="container">
+
+    {{#if cityErr}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> 
+            {{cityErr}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
+</div>
+    <div class="row">
+        {{#each myCities}}
+        
+            <div class="col-6 border-2 border-start border-bottom border-end py-3">
+                <h1 class="h3 fs-1 fw-bold lh-sm ps-2">{{main.temp}}° <span>{{icon}}</span></h1>
+                <p class="h5 mb-0">City: {{name}}</p>
+            </div> 
+        
+        {{else}}
+    </div>
+        <p>City not found</p>
+    {{/each}}
+</div>
