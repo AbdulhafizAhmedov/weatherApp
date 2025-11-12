@@ -45,15 +45,16 @@ router.get("/cities", cityMiddleware, userMiddleware, async (req, res,) => {
 router.post("/cities", userMiddleware, cityMiddleware, async (req, res) => {
     const { cityname } = req.body;
     const cityList = req.myCities;
-    if (citySearch(cityList, cityname)) {
-        req.flash("cityErr", "City already exists!");
-        res.redirect("/cities");
-    };
-
+    
     if (!cityname) {
         console.log("Error");
         return res.status(400).json({ error: "cityname required" });
     }
+
+    if (citySearch(cityList, cityname)) {
+        req.flash("cityErr", "City already exists!");
+        return res.redirect("/cities");
+    };
 
     try {
         const weatherData = await Promise.allSettled(req.myCities.map(city => getWeather(city)));

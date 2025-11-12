@@ -36,7 +36,8 @@ const getWeather = async city => {
             appid: token,
             lang: "en",
             units: "metric"
-        }
+        },
+        headers: {"Cache-control": "no-cache"}
     });
     
     return response.data;
