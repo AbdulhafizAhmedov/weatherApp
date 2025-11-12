@@ -47,8 +47,14 @@ router.get("/delete", userMiddleware, async (req, res) => {
 
     if (user) {
         const deleteCity = await City.deleteMany({user: user});
-        console.log(`${deleteCity.deletedCount} city successfully deleted!`);
-        return res.redirect("/cities")
+        
+        req.flash("deleted", "All cities succesfully deleted!")
+        
+        res.redirect("/");
+
+        return res.render("index", {
+            deleted: req.flash("deleted")
+        });
         
     } else {
         console.log("User not found!");
