@@ -14,6 +14,7 @@ import CityRoutes from "./routes/cities.js"
 import warMiddleware from "./middleware/war.js";
 import userMiddleware from "./middleware/userScan.js";
 import cityMiddleware from "./middleware/cityScan.js";
+import deleteMiddleware from "./middleware/delete.js";
 
 dotenv.config();
 
@@ -34,6 +35,7 @@ app.use(flash());
 app.use(warMiddleware);
 app.use(userMiddleware);
 app.use(cityMiddleware);
+app.use(deleteMiddleware);
 
 app.use(AuthRoutes);
 app.use(CityRoutes);

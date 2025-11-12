@@ -42,6 +42,19 @@ router.get("/cities", cityMiddleware, userMiddleware, async (req, res,) => {
     };
 });
 
+router.get("/delete", userMiddleware, async (req, res) => {
+    const user = req.userId ? req.userId.toString(): null;
+
+    if (user) {
+        const deleteCity = await City.deleteMany({user: user});
+        console.log(`${deleteCity.deletedCount} city successfully deleted!`);
+        return res.redirect("/cities")
+        
+    } else {
+        console.log("User not found!");
+    }
+});
+
 router.post("/cities", userMiddleware, cityMiddleware, async (req, res) => {
     const { cityname } = req.body;
     const cityList = req.myCities;

@@ -1,5 +1,19 @@
+.delete-btn > a {
+    color: red;
+}
+
+.delete-btn:hover > a {
+    color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+    .width-50 {
+        max-width: 50vw;
+    }
+};
+
 @media only screen and (max-width: 576px) {
-    .width {
+    .width-80 {
         max-width: 80vw;
     }
-}
+};

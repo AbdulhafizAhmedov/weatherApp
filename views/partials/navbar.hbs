@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top bg-body-tertiary shadow-sm">
-    <div class="container-fluid  py-2 px-md-5">
-        <a href="/" class="d-flex align-items-center ms-3 link-body-emphasis text-decoration-none">
+    <div class="container-fluid py-2 pe-3 px-md-5">
+        <a href="/" class="d-flex align-items-center ms-1 ms-sm-3 link-body-emphasis text-decoration-none">
             <i class="fa-solid fa-cloud fs-1 text-success"></i>
             <span class="fs-4 fw-medium">Weather</span>
         </a>
@@ -10,16 +10,25 @@
                 <span class="navbar-toggler-icon"></span> 
             </button>
 
-            <div class="offcanvas offcanvas-end show" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel" aria-modal="true" role="dialog">
-                <div class="offcanvas-header px-4"> 
+            <div class="offcanvas offcanvas-end width-50 show" tabindex="-1" id="offcanvasNavbarLight" aria-labelledby="offcanvasNavbarLightLabel" aria-modal="true" role="dialog">
+                <div class="offcanvas-header pb-2 px-4"> 
                     <h5 class="offcanvas-title" id="offcanvasNavbarLightLabel">Search</h5> 
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
                 </div> <hr>
-                <form class="d-flex mt-3 mb-auto px-2" role="search" method="post">
-                    <input class="form-control me-2" name="cityname" type="search" placeholder="Search" aria-label="Search"/>
+                <form class="d-flex flex-column flex-sm-row mt-3 mb-auto px-2" role="search" method="post">
+                    <input class="form-control me-2 mb-4 mb-sm-0" id="cityname" name="cityname" type="search" placeholder="Search" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit" data-bs-dismiss="offcanvas" aria-label="Close">Search</button>
                 </form>
-                <a class="btn btn-danger mb-2 mx-2 p-2 text-light text-decoration-none" role="button" href="/logout">Logout</a>
+                <div class="btn-group mx-2" role="group" aria-label="Basic example">
+                    
+                    {{#if cities}}
+                        <button class="btn btn-outline-danger mb-2 p-2 delete-btn">
+                            <a class="text-decoration-none" role="button" href="/delete">Delete</a>
+                        </button>
+                    {{/if}}
+                    
+                    <a class="btn btn-danger mb-2 p-2 text-light text-decoration-none" role="button" href="/logout">Logout</a>
+                </div>   
             </div>    
         {{else}}
 
@@ -48,3 +57,10 @@
         {{/if}}       
     </div>
 </nav>
+
+<script>
+    const input = document.getElementById("cityname");
+    input.addEventListener(input, () => {
+        input.value = input.value.normalize("NFC");
+    });
+</script>
