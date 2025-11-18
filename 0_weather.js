@@ -5,25 +5,25 @@ const getIcons = icon => {
     const sliceIcon = icon.slice(0,-1)
     switch (sliceIcon) {
         case "01":
-            return "☀"
+            return "sunny"
         case "02":
-            return "🌥"
+            return "cloudy"
         case "03":
-            return "☁"
+            return "light-cloud"
         case "04":
-            return "☁"
+            return "heavy-cloud"
         case "09":
-            return "🌧"
+            return "rain"
         case "10":
-            return "🌦"
+            return "rainy"
         case "11":
-            return "🌩" 
+            return "storm" 
         case "13":
-            return "❄"
+            return "snow"
         case "50":
-            return "🪟" 
+            return "mist" 
         default:
-            return "❓"     
+            return "default-weather"     
     };
     
 }; 

@@ -1,3 +1,93 @@
+.sun {
+    background: linear-gradient(rgba(0, 14, 25, 0.2), rgba(0, 14, 25, 0.4)), url(https://media.istockphoto.com/id/1046851238/photo/sun-shining-on-blue-sky-background.jpg?s=612x612&w=0&k=20&c=p3dNi2lGR-MunSquZy-9ufnDkmRl2xH3YNrzd5tcWQQ=);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sunny-cloud {
+    background: linear-gradient(rgba(0, 14, 25, 0.2), rgba(0, 14, 25, 0.4)), url(https://wpcdn.us-east-1.vip.tn-cloud.net/www.klkntv.com/content/uploads/2020/04/cloud1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.light-cloud {
+    background: linear-gradient(rgba(0, 14, 25, 0.6), rgba(0, 14, 25, 0.8)), url(https://img.freepik.com/premium-photo/landscape-light-blue-sky-light-clouds_270100-2201.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heavy-cloud {
+    background: linear-gradient(rgba(0, 14, 25, 0.2), rgba(0, 14, 25, 0.4)), url(https://images.pexels.com/photos/414659/pexels-photo-414659.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rain {
+    background: linear-gradient(rgba(0, 14, 25, 0.4), rgba(0, 14, 25, 0.6)), url(https://t3.ftcdn.net/jpg/04/75/01/64/360_F_475016474_F4shPd9UBQJFRAxu4P7VXqZous5JzL0N.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rainy {
+    background: linear-gradient(rgba(0, 14, 25, 0.4), rgba(0, 14, 25, 0.6)), url(https://t3.ftcdn.net/jpg/04/75/01/64/360_F_475016474_F4shPd9UBQJFRAxu4P7VXqZous5JzL0N.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.storm {
+    background: linear-gradient(rgba(0, 14, 25, 0.6), rgba(0, 14, 25, 0.8)), url(https://media.istockphoto.com/id/517643357/photo/thunderstorm-lightning-with-dark-cloudy-sky.jpg?s=612x612&w=0&k=20&c=x3G3UijRPVGFMFExnlYGbnQtnlH6-oUoMU48BTkc0Os=);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.snow {
+    background: linear-gradient(rgba(0, 14, 25, 0.4), rgba(0, 14, 25, 0.6)), url(https://www.shutterstock.com/image-photo/pine-branch-under-snow-blue-260nw-1875171835.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mist {
+    background: linear-gradient(rgba(0, 14, 25, 0.6), rgba(0, 14, 25, 0.8)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7wNUPI0PhL9ZJcKWFqOwWsYTosYqeMbvnMg&s);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mixed-icon {
+  position: relative; 
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.mixed-icon .sunny {
+  color: #facc15; /* sariq */
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 6;
+}
+
+.mixed-icon .cloudy {
+  color: #f2f2f2; 
+  font-size: 42px;
+  position: absolute;
+  bottom: -12;
+  right: 4;
+}
+
+.mixed-icon .heavy1_cloud {
+    font-size: 40px;
+    position: absolute;
+    top: 0;
+    right: -12;
+}
+
+.mixed-icon .heavy2_cloud {
+    font-size: 42px;
+    position: absolute;
+    bottom: -4;
+}
+
 .delete-btn > a {
     color: red;
 }
@@ -6,9 +96,69 @@
     color: #fff;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 992px) {
+    .mixed-icon .sunny {
+        color: #facc15; /* sariq */
+        font-size: 36px;
+        position: absolute;
+        top: 0;
+        left: 8;
+    }
+
+    .mixed-icon .cloudy {
+        color: #f2f2f2; 
+        font-size: 38px;
+        position: absolute;
+        bottom: -10;
+        right: 4;
+    }
+
+    .mixed-icon .heavy1_cloud {
+        font-size: 36px;
+        position: absolute;
+        top: 0;
+        right: -8;
+    }
+
+    .mixed-icon .heavy2_cloud {
+        font-size: 38px;
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .width-50 {
         max-width: 50vw;
+    }
+
+    .mixed-icon .sunny {
+        color: #facc15; /* sariq */
+        font-size: 30px;
+        position: absolute;
+        top: 0;
+        left: 12;
+    }
+
+    .mixed-icon .cloudy {
+        color: #f2f2f2; 
+        font-size: 32px;
+        position: absolute;
+        bottom: -2;
+        right: 4;
+    }
+
+    .mixed-icon .heavy1_cloud {
+        font-size: 30px;
+        position: absolute;
+        top: 6;
+        right: -2;
+    }
+
+    .mixed-icon .heavy2_cloud {
+        font-size: 32px;
+        position: absolute;
+        bottom: 0;
     }
 };
 

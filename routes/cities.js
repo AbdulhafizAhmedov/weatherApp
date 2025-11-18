@@ -1,6 +1,7 @@
 import { response, Router } from "express";
 import City from "../models/city.js";
-import {getWeather, getIcons} from "../0_weather.js"
+import { getWeather } from "../0_weather.js";
+import { getIcons } from "../1_icons.js"
 import userMiddleware from "../middleware/userScan.js";
 import cityMiddleware from "../middleware/cityScan.js";
 import { citySearch } from "../comparison.js";
@@ -15,25 +16,26 @@ router.get("/cities", cityMiddleware, userMiddleware, async (req, res,) => {
         const citiesList = await City.find({user}).populate("user").lean();
         
         const responseWidthFloor = response.map(city => {
+            const temp = Math.floor(city.main.temp);
+            const icon = city.weather[0].icon;
+            const { className, iconName, specIcon } = getIcons(icon, temp);
             return {
                 ...city,
                 main: {
                     ...city.main,
-                    temp: Math.floor(city.main.temp)
-                }
+                    temp: temp
+                },
+                className: className,
+                iconName: iconName,
+                specIcon: specIcon
             };
         });
 
-        const Icons = responseWidthFloor.map(city => {  
-            return { 
-                ...city, 
-                icon: getIcons(city.weather[0].icon)
-            }
-            }
-        ); 
+        console.log(responseWidthFloor);
+        
 
         res.render("cities", {
-            myCities: Icons.reverse() ,
+            myCities: responseWidthFloor.reverse(),
             cityErr: req.flash("cityErr")
         });
     } catch (error) {
@@ -83,27 +85,25 @@ router.post("/cities", userMiddleware, cityMiddleware, async (req, res) => {
         response.push(newWeather);
         
         const responseWidthFloor = response.map(city => {
+            const temp = Math.floor(city.main.temp);
+            const icon = city.weather[0].icon;
+            const { className, iconName, specIcon } = getIcons(icon, temp);
             return {
                 ...city,
                 main: {
                     ...city.main,
-                    temp: Math.floor(city.main.temp)
-                }
+                    temp: temp
+                },
+                className: className,
+                iconName: iconName,
+                specIcon: specIcon
             };
         });
-
-        const Icons = responseWidthFloor.map(city => {  
-            return { 
-                ...city, 
-                icon: getIcons(city.weather[0].icon)
-            }
-            }
-        ); 
 
         await City.create({ciTy: cityname, user: req.userId});
 
         return res.render("cities", {
-            myCities: Icons.reverse(),
+            myCities: responseWidthFloor.reverse(),
             cityErr: req.flash("cityErr")
         });
     } catch (error) {

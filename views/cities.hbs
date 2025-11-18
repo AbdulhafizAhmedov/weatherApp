@@ -8,12 +8,12 @@
         </div>
     {{/if}}
 </div>
-    <div class="row">
+    <div class="row h-75 h-sm-100 mx-3 mx-sm-auto">
         {{#each myCities}}
         
-            <div class="col-6 border-2 border-start border-bottom border-end py-3">
-                <h1 class="h3 fs-1 fw-bold lh-sm ps-2">{{main.temp}}° <span>{{icon}}</span></h1>
-                <p class="h5 mb-0">City: {{name}}</p>
+            <div class="col-12 col-sm-6 h-50 border-4 border-start border-bottom border-secondary-subtle border-end py-3 px-0 px-sm-auto rounded {{className}}">
+                <h1 class="fs-1 mb-0 mb-sm-auto fw-bold text-light lh-sm ps-4">{{main.temp}}° <div class="mixed-icon"> <i class="{{iconName}}"></i> <i class="{{specIcon}}"></i> </div></h1>
+                <p class="h5 text-light ms-5 mb-0">{{name}}</p>
             </div> 
         
         {{else}}
